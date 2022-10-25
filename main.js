@@ -20,11 +20,16 @@ renderer.setPixelRatio(devicePixelRatio);
 
   camera.position.z = 5;
 
+  animate()
+
   function animate() {
-    requestAnimationFrame(animate)
+    requestAnimationFrame(animate);
     renderer.render(scene, camera);
-    mesh.rotation.x += 0.01
+    mesh.rotation.x += 0.01;
   }
+  
+  animate()
+
 
   
 
