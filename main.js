@@ -35,11 +35,17 @@ playAudio();
   }
 
   function playAudio(){
-        var audio = new Audio('/audio/A5.mp3');
-  audio.play();
+    const audioFile = ["A4.mp3", "A5.mp3", "C4.mp3", "C5.mp3", "D4.mp3",
+   "D5.mp3", "E4.mp3", "E5.mp3", "G4.mp3", "G5.mp3"];
+
+   const audioName = randomItem(audioFile);
+    
+   var audio = new Audio('/audio/' + audioName);
+    
+   audio.play();
   }
 
-  function randomItem(array){
+  function randomItem(arr){
     //array of soundFileNames
     const audioFile = ["A4.mp3", "A5.mp3", "C4.mp3", "C5.mp3", "D4.mp3",
    "D5.mp3", "E4.mp3", "E5.mp3", "G4.mp3", "G5.mp3"];
@@ -50,13 +56,3 @@ playAudio();
 
     return item;
   }
-
-
-  
- 
-
-
-  
-
-
-  
