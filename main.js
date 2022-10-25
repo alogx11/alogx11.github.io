@@ -26,6 +26,7 @@ renderer.setPixelRatio(devicePixelRatio);
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
     mesh.rotation.x += 0.01;
+    mesh.rotation.y += 0.02
   }
   
   animate()
