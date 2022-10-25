@@ -20,7 +20,12 @@ renderer.setPixelRatio(devicePixelRatio);
 
   camera.position.z = 5;
 
+  //create array with strings of sound file names
+  const audioFile = ["A4.mp3", "A5.mp3", "C4.mp3", "C5.mp3", "D4.mp3",
+   "D5.mp3", "E4.mp3", "E5.mp3", "G4.mp3", "G5.mp3"];
+
   animate()
+playAudio();
 
   function animate() {
     requestAnimationFrame(animate);
@@ -28,8 +33,27 @@ renderer.setPixelRatio(devicePixelRatio);
     mesh.rotation.x += 0.01;
     mesh.rotation.y += 0.02
   }
+
+  function playAudio(){
+        var audio = new Audio('/audio/A5.mp3');
+  audio.play();
+  }
+
+  function randomItem(array){
+    //array of soundFileNames
+    const audioFile = ["A4.mp3", "A5.mp3", "C4.mp3", "C5.mp3", "D4.mp3",
+   "D5.mp3", "E4.mp3", "E5.mp3", "G4.mp3", "G5.mp3"];
+    //random index value
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    // get random item
+    const item = arr[randomIndex];
+
+    return item;
+  }
+
+
   
-  animate()
+ 
 
 
   
