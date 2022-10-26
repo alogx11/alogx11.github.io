@@ -1,7 +1,7 @@
 import * as THREE from 'https://unpkg.com/three@0.145/build/three.module.js';
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75,innerWidth/innerHeight, 0.1, 1000);
+  const camera = new THREE.PerspectiveCamera(75,innerWidth/innerHeight, 1, 1000);
   const renderer = new THREE.WebGLRenderer();
 
   console.log(scene);
@@ -24,14 +24,29 @@ renderer.setPixelRatio(devicePixelRatio);
   const audioFile = ["A4.mp3", "A5.mp3", "C4.mp3", "C5.mp3", "D4.mp3",
    "D5.mp3", "E4.mp3", "E5.mp3", "G4.mp3", "G5.mp3"];
 
-  animate()
-playAudio();
+  animate();
+mousePresssed();
+loadGLTF();
 
   function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
     mesh.rotation.x += 0.01;
     mesh.rotation.y += 0.02
+  }
+  function loadGLTF() {
+    let polyWorld = new THREE.loadGLTF();
+
+    polyWorld.load('/assets/lowpolyworld.gltf', (gltf) => {
+      polyWorldMesh = gltf.scene
+      polyWorldMesh.scale.set(1);
+      scene.add(polyWorldMesh);
+      polyWorldMesh.poosition.x = 0;
+      polyWorldMesh.poosition.y = 0;
+      polyWorldMesh.poosition.z = 0;
+
+    });
+
   }
 
   function playAudio(){
@@ -40,9 +55,13 @@ playAudio();
 
    const audioName = randomItem(audioFile);
     
-   var audio = new Audio('/audio/' + audioName);
+   var audio = new Audio('/assets/audio/' + audioName);
     
    audio.play();
+  }
+
+  function mousePresssed(){
+    playAudio();
   }
 
   function randomItem(arr){
